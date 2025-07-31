@@ -1,0 +1,34 @@
+const EventEmitter = require('events');
+
+class Emitter extends EventEmitter {}
+
+const myE = new Emitter();
+
+myE.on('foo', () => {
+    console.log('event emitted')
+})
+
+myE.emit('foo')
+
+this is how we can create our own event emiiter completely from the scratch.
+
+we said nodejs is event driven architechture. it means that we can issue commands, instructions to computer and wait to respond back.
+
+this is just a pattern. with event emiiter we are not doing just as fancy as asynchrously.
+
+Assume we have a master object like {}
+when we listening an event using on method we just pushing a function to that master object. no matter how many times we could call on method with the same argument with the same structure. on method just pushing a function to that master object as said earlier.
+
+when we emitting an event using emit method it just loop through the master object and run those all of these function that associated.
+
+Ex:
+object.on('foo', () => {})
+object.on('foo', () => {})
+object.on('foo', (x) => {console.log(x)})
+
+when we emitting an event using object.emit('foo'), it going to run all of the above three function from the master object.
+if we emitting object.emit('foo') two times it going to run all the functions two times.
+
+next thing is "once" method. object.once('bar', () => {})
+this time when we emit object.emit('bar') it going to run that associated function from the master object. and ran it going to flush that function.
+

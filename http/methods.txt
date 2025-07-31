@@ -1,0 +1,347 @@
+First we need to understand the concept idempotent.
+
+If doing that operation multiple times will not have any additional effects except the very first one.
+
+So let's say that I have this function.
+
+Let's see in one example, let's say that I have this function delete files over one gigabyte.
+
+    function deleteFileThatGreaterThanOneGB() {}
+
+And every time we call this function, this function is going to go on ahead in our hard drive and delete every single file that's over one gigabyte.
+
+So what do you think will happen if we call it the first time?
+
+Well, of course, the name suggests it's going to go ahead and delete all these files.
+
+But what will happen most importantly after we call it again?
+
+Now in the second call, nothing will happen.
+
+Because in the first call, we already deleted all the files that we wanted to delete.
+
+And after the first call, we no longer have a file that's over one gigabyte.
+
+So no matter if I call it once or twice or many, many more times, it's going to have the exact same effect.
+
+And therefore we call this function an idempotent function, meaning that only the first call is going to have an effect and the subsequent calls will have no effect whatsoever.
+
+Now take a look at another function 
+    function deleteBiggestFile() {}
+
+Now the first time that I call this function, it's going to go on ahead in my hard drive and delete
+
+the biggest file that I have.
+
+The size could be 900MB or it could be 20GB.
+
+We don't care.
+
+It's just going to delete the biggest file that we have in our whole hard drive.
+
+So what if I call it another time in the second call?
+
+It's going to go ahead and delete the second biggest file.
+
+Now the first one is going to delete the first biggest file.
+
+And now the second one is going to delete the second biggest file.
+
+So it really doesn't matter every time we call it it's just going to delete one file.
+
+And as long as we have some files in our hard drive.
+
+So if I call it 20 times I am going to delete 20 different files.
+
+If I call it 100 times, I'm going to delete 100 different files.
+
+So we say that this delete biggest file function is not idempotent
+
+Now we have the exact same concepts in Http methods we call an Http method Idempotence.
+
+If we send a request with that method multiple times, only the first one will have an effect and the following requests will have no effect whatsoever.
+
+And by that I mean effects on the actual server, not really on the clients.
+
+For example, if we send ten different requests, only the first 1st May change the state of our server, and the following ones will have no effect whatsoever on the server.
+
+Again, the responses could be different.
+
+For example, in the first request you could receive a response that hey, the thing was successful and maybe the server deleted that thing.
+
+And in the following ones you might receive an error that doesn't matter.
+
+The point is that the state of the server remains the same, and the condition is also that the inputs should be similar.
+
+So if you send maybe a Get request with the exact same inputs with the exact same URL and the exact
+
+same headers, if you send it multiple times and only the first one will have some sort of effect,
+
+and the following ones will not have any effect whatsoever.
+
+We call that method idempotent..
+
+methods:
+
+GET:
+    Within this Get method, you use this method to indicate that you want to request some amount of data.
+
+    We want to request a resource.
+
+    You want to get an image file, or you want to get an HTML file or some Json.
+
+    You use this Get method to get something off of your server.
+
+    You don't use a Get method to delete something, or you don't use it to create something.
+
+    You only use it to get some resource out of your server.
+
+    Now when a Get requests, the request has no body.
+
+    You cannot really specify a body in your Get request.
+
+    You only specify the URL, and with that URL you identify the resource that you want and the response does have body okay.
+
+    When you send a Get request, you are expecting some data to be returned to you.
+
+    So the response always has a body.
+
+    And in terms of whether or not this function is idempotent, well, yes it is.
+
+    So think of it this way.
+
+    You send your first request to your server, you receive some amount of data, and after you send 100 more requests, 100 more get requests with the exact same input, with the exact same URL and headers,
+
+    you're going to receive the exact same thing.
+
+POST:
+    We use this method to create a resource or to perform some sort of an action.
+
+    Now it requests that its method is post has body of course, and also the response has body.
+
+    Now we could also maybe send a request that doesn't have any body.
+
+    It doesn't really matter that much.
+
+    But generally speaking a Post request does have some body and its response also has body.
+
+    Now do you think a Post request is idempotent or not?
+
+    What happens when you send maybe five same exact Post requests to your server?
+
+    Well, they all result in the same thing.
+
+    Or will they have different effects?
+
+    Now the answer is they should have different effects because we say that the post method is not idempotent.
+
+    Again, this is based on the specifications.
+
+    You could create some sort of Post request and make your server to handle that in a way so that that request will be idempotent.
+
+    But if that's the case, you should probably be using a Post request or a patch request.
+
+    And we're going to talk about them in just a minute.
+
+    But the post request is not supposed to be idempotent.
+
+    If you send a Post request to your server, for example, for creating comments, and then you send
+
+    the exact same request again to your server.
+
+    Well, two different things should happen.
+
+    The first request should create that comment, and then the second request should create another comment.
+
+    Well, they are identical comments, but we're doing something right.
+
+    The second request is not neutral.
+
+    It does have some amount of effects, although it's creating the exact same comments.
+
+PUT:
+    Imagine you have a user and that user has a name, email and password.
+
+    And in one request you want to change the name.
+
+    You want to change the email, and you also want to change the password.
+
+    In that case, you should use the put request.
+
+    Now, in terms of whether or not it's idempotent, yes, it is idempotent when you update that user with the new email, with the new password and the new name, if you send that exact same request maybe
+
+    100 more times, nothing should be changed because, well, we're just doing the exact same thing, right?
+
+    The name is going to be the exact same thing and everything is just like before.
+
+    So we say that a put request is idempotent.
+
+Which one we use post or put?
+    Well, think of it this way.
+
+    You want to maybe create a user.
+
+    The first request is going to create that user.
+
+    But what happens if you send the exact same request multiple times?
+
+    Well, the following requests create more users or well, they have no effect.
+
+    If the answer is that they will have no effect whatsoever, then you should use a Put request.
+
+    If they will have some sort of an effect.
+
+    You should use the Post request for example, for posting comments.
+
+    That's a very good case when you want to use a Post request or when you are sending an email.
+
+    If you send a request to send an email and you send that request again, that email is going to be sent again.
+
+    So that's where you want to use the Post request.
+
+    But for put requests, if you want to create something and then you send the exact same request again, nothing will happen.
+
+    If that's the case, then you should go with the put request.
+
+PATCH:
+    Now a patch request we use it to partially update something.
+
+    Let's go back to our users example.
+
+    Again a user has a name, email and password.
+
+    If you just want to change the name, then you should use a patch request.
+
+    If you want to change everything like the name, the email and the password.
+
+    That case you should use a put request.
+
+    Now when a patch request, of course the request has some sort of a body and the response may again or may not have a body.
+
+    And in terms of whether or not it's idempotent, well, not necessarily, but it could also be idempotent.
+
+    For example, if you are changing the user's email, if you send that request, you're going to change the email.
+
+    And if you send that request 100 more times, well, the email is going to be the same thing.
+
+    But let's say we have a counter and each time you send a particular patch request, we want to increment that counter by one.
+
+    So now it's no longer idempotent because if you send a 100 patch requests you are increasing that counter by 100.
+
+    Or if you send maybe just 20 you're increasing it by 20.
+
+    So in that case the patch request is not idempotent.
+
+    So it could or it could not be idempotent.
+
+    But you would use a patch request every time you want to partially update something, maybe number of
+
+    likes, or maybe just the name of a user or something like that.
+
+Now you might be saying, why in the world do we have all these different methods?
+    Why can't I just use post method and just a get method and call it a day?
+
+    It will be much simpler.
+
+    Well, you could do that, but you don't really want to do that because if you do that, people who are working on the front end of your application, they're going to be confused a lot.
+
+    For example, if they are going to be sending a Post request and they expect that if they send that
+
+    Post request multiple times, nothing really will happen.
+
+    And so they are safe to send it many, many times.
+
+    Whereas when they're sending a Post request, they should be careful to send it only once.
+
+    And if they send it twice, they're going to have two different records.
+
+    So if you're using the correct Http methods, you're going to make the job of people who are working on the front end much, much easier.
+
+    Now, you could also be the same person who's working on the front end.
+
+    You're making your job much easier as well, so make sure to always stick with the methods with the specifications.
+
+    Don't always use a post and a Get request and call it a day.
+
+    Try to use these other methods as well.
+
+    As much as you possibly can.
+
+    Your application will be more descriptive.
+
+    It's kind of like documenting your code more.
+
+DELETE:
+    Now you use this request to delete a specified resource.
+
+    Let's say to delete an image or to delete a post or to delete a user.
+
+    Now the request may or may not have a body.
+
+    You could just send a delete request with a URL, and that URL might include the ID of that resource.
+
+    So you're not really sending any body, but you could also send some body if you want.
+
+    The response again, could have a body or it could not have a body.
+
+    It's not really that we say that it's better to include some sort of a body in a delete response.
+
+    Again, no one really cares.
+
+    You could either include some body or not include some body.
+
+    But here's an important one.
+
+    Delete method is idempotent.
+
+    So when you're sending a delete request, if you send it many, many times, nothing should happen except that first one.
+
+    So you're deleting a post.
+
+    You send a delete request to delete that particular post, or that particular maybe video or an image, anything.
+
+    But if you send that request many, many more times because you're including that ID and that file is
+
+    now deleted, those following requests will not have an effect.
+
+    The server will just say something like that.
+
+    Hey, the resource that you're looking for with that particular ID does not exist and nothing will happen.
+
+    So always make sure to use the delete method if your request is supposed to be idempotent.
+
+    If it's not supposed to be idempotent, then do not use a delete request and maybe use the Post request.
+
+    For example, let's say that you have this route and every time you send a request to it, what will happen is that the server is going to go on ahead and delete the last 100 users who signed up and did not verify themselves.
+
+    So if you hit it two times, that route is going to delete 200 users.
+
+    For a case like that, you should not use the delete method, even though it kind of makes sense.
+
+    But because that request is not idempotent, in that case, you should not use the delete method, and maybe instead you should use the post method.
+
+HEAD:
+    This method is only used to get headers.
+
+    example,  if you want to download a huge file, you could send a head request.
+
+    First, grab the content length and then see how big that content length is and depending upon that, to decide if you want to proceed to download it or not or something like that, or if you just want to display the file size.
+
+OPTIONS:
+    We use this method to ask for available communication options.
+
+    And by that I mean let's say that you want to send requests to the server.
+
+    And you want to make sure that that server accepts these headers, or you want to make sure that that server accepts maybe this particular method, you could first send an options request, grab those configurations, and then decide what you want to do.
+
+    And also very importantly this method is used for cors.
+
+    And we're going to talk about it later on.
+
+    But it's very important if you want to handle calls properly, you have to configure your server in a way to handle options requests properly.
+
+    Browsers automatically send you options requests, so you have to be prepared to handle these kind of requests.
+
+    One case would be that the browser will send you a request and ask you, hey, am I allowed from this domain name to send your request or not?
+
+    And then the server will say yes, you're allowed and then the client will proceed, or otherwise the client will just return an error and say that this server does not allow me to communicate with it through this domain name.

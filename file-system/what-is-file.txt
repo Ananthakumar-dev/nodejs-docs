@@ -1,0 +1,14 @@
+We could say that a file is a sequence of bits, meaning of which is defined by the user.
+
+But each sequence of bits might mean a different thing depending upon how you want to decode that data.
+
+So it's important that we say how we want to open the file, how we want to decode those zeros and ones.
+
+Now file could represent different things.
+
+It could represent a program or they could represent maybe some data.
+
+Data could mean an image, a video file or something that's in a free form, like a text file, like a JavaScript file.
+
+So that's really what a file is.
+

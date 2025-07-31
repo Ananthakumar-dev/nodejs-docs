@@ -1,0 +1,11 @@
+const net = require("net")
+
+Net module in node, you could create a TCP server or you could send TCP requests.
+
+It's just here for us to help us with this whole TCP thing.
+
+So it's the lowest level that you can get in node when you want to do networking.
+
+So there are some other networking modules in node such as dns, http, but all of these modules are actually built on top of the Net module.
+
+You could build an SSH server on top of the Net module.

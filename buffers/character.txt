@@ -1,0 +1,145 @@
+Character sets
+
+Computers, well, can only hold numbers, right?
+
+They can only store numbers, they can only work with numbers.
+
+But we as humans, we deal with text a lot.
+
+We want to type, we want to write, we want to read.
+
+So what should we do in this case?
+
+So what we need is a system of mapping between characters and numbers.
+
+And this is exactly what a character set is.
+
+It's just a system of mapping these two together.
+
+So it defines a whole list of all the letters and symbols.
+
+Well they're just characters.
+
+It defines all these things.
+
+And also it assigns a number to each one of these characters.
+
+So if I assign character u, maybe some number, maybe number 400, if I now save 400 in my memory.
+
+Well, as a binary of course, I now know that that 400 means character U.
+
+Okay, so we have this whole system to help us be able to deal with characters, be able to deal with string inside of our computers.
+
+Now, two of the most very common character sets that we use are Unicode and Ascii.
+
+Unicode is vast. it has more than 149813 characters.
+Unicode is just a standard, okay?
+
+It's not an application.
+
+It's not something that you install on your computer.
+
+It's just some standards that everyone around the world have helped to build.
+
+Language experts are contributing to it.
+
+People from all around the world are contributing to this Unicode standard, so that now we have something
+
+we have a whole standard of knowing how to represent characters in computers.
+
+And we could do that now with all the other languages Chinese, Greek, Japanese, some languages that
+
+we have probably never heard about.
+
+So we now have a way of representing all these numbers and characters inside of our computers, but, well, it's just a standard.
+
+So we've got something else that is built on top of the standards, and it's something that we install
+
+in our computer, and that's character encodings and that's coming up next.
+
+But it's important to know that character sets well, there are just standards.
+
+So again, a character set such as Unicode defines all these characters and then the numbers.
+
+And one example is that character S has this number in Unicode.
+
+So 115 is a number that is assigned to character s and actually lowercase s okay.
+
+Now, apart from Unicode, we've got another very common character set in computers, and that's called
+
+the Ascii Character set or ASC II now Ascii characters.
+
+This stands for American.
+
+So this is for English language only.
+
+It only defines 128 characters.
+
+Now Ascii is really commonly used in computers.
+
+A lot of things that you'll see only have Ascii only deal with Ascii.
+
+But Ascii is just for the English language.
+
+And Ascii is the subset of Unicode.
+
+Encoders and Decoders::
+Encoders ---
+Encoder in general gets something meaningful to us humans and it turns that into some zeros and ones. Okay.
+
+So an image encoder will take an image.
+
+For example, if you pull up your phone and you take an image, it will take that image and it will
+
+convert that image into some zeros and ones, so that now we can save that image in our memory, we
+
+can now save that image, maybe on our disk or something.
+
+We can now send it through our network card to somewhere else.
+
+Decoders --- 
+
+So a decoder, an image decoder will take those zeros and ones, and it will now know how to display
+
+that image.
+
+So it knows now that at this pixel at this location it should display this color code, the other pixel,
+
+this color code and so forth.
+
+Same for a video decoder, same for a PDF decoder and all these other decoders that we have.
+
+So the general concept of decoders and encoders decoder just takes some zeros and ones and it turns
+
+it into something meaningful to humans.
+
+Character encodings --- 
+Now character encodings as the name suggests, it's exact same concept.
+
+They take some zeros and ones.
+
+But now the meaningful thing that they turn those zeros and ones into, well, are just characters.
+
+So definition of a character encoding is a system of assigning a sequence of bytes.
+
+Again remember sequence of bytes.
+
+It's just some zeros and ones to a character.
+
+And that's it.
+
+That's what a character encoding is.
+
+And it's something built in into the core of your operating system.
+
+It's not an abstract idea like the Unicode.
+
+It's something built in and you can use this.
+
+All the operating systems come with a built in encoding in place.
+
+And if an operating system doesn't have a character encoding, then it means that you can't deal with text at all.
+
+Now, the most common character encoding that we have right now is the UTF eight character encoding.
+
+And it is defined by the Unicode standard, which means that UTF eight uses the exact same numbers as Unicode.

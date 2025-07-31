@@ -1,0 +1,73 @@
+Now assume we have a company with 4 peoples that is one network. and this network is connected together via switch.
+
+Like our network we have so many network groups are there in this world. so how can these network groups talk together?
+
+We can imagine that it will be really unpractical to try to use switches and connect millions of cables together.
+
+It's really, really messy.
+
+You can't have just one switch or maybe multiple switches, but connect all these computers to those.
+
+It's just not possible.
+
+So when we install the routers on top of the switches this is going to be pretty interesting.
+
+So now we could connect these routers together also using some cables just like before.
+
+And now what happens is that a computer from one network group could talk to a computer from another network.
+
+So the way that routers work is instead of Mac addresses they now work with IP addresses.
+
+Well they're running on top of the switch.
+
+So they still understand Mac addresses.
+
+But now they mainly work with IP addresses.
+
+Now, basically, an IP address is a unique address assigned to a specific device.
+
+And it's unique, just like, you know, Mac addresses.
+
+So each computer right now and each router will have a unique IP address associated with it.
+
+So just like what you see now this router, its job is to assign IP addresses to all the computers that are connected to it.
+
+So we'll automatically assign IP addresses to all these computers connected to it.
+
+And it will also route data.
+
+So it could route data from this network to the other network.
+
+So that's basically what routers do.
+
+Now think of an IP address like your address your home address.
+
+So you might want to send a package from your home to another person.
+
+Maybe they could be in the same city as you are or they could be in another country.
+
+The thing is that you have a unique address assigned to yourself, to your home, and that's unique.
+
+Each computer, each device has a unique IP address assigned to it.
+
+Now, in this case, the first two portions of an IP address will act kind of like the city.
+
+now we set up something that every single computer right now could talk to each
+
+other.
+
+So this computer right here could now specify the IP address of this computer or maybe this computer.
+
+And they could now talk to each other.
+
+They could now send bits to each other.
+
+And if you can send bits, if we can send zeros and ones, you can actually send anything you want.
+
+You can send a huge file.
+
+You could send video file applications.
+
+It doesn't matter.
+
+So this is what the internet really is.

@@ -1,0 +1,60 @@
+1. host: 127.0.0.1:8050
+    Host is the header that we need to connect server ip with port.
+
+2. connection: keep-alive
+    This HTTP header is used to tell the server to keep the connection open after the initial request/response cycle, rather than closing it immediately. This allows for multiple requests and responses to be sent over the same TCP connection, which can improve performance by reducing latency and saving resources.
+
+    Use case:
+        When a browser accesses a web page, it may need many files from the server (e.g., CSS, JS, images). If each file required a new TCP connection, that would be slow and expensive. With keep-alive, the browser can reuse the same connection for all the requests, making the page load faster.
+
+    HTTP/1.0 - Needs explicit Connection: keep-alive header to reuse connections.
+
+    HTTP/1.1 - Keep-alive is the default behavior unless Connection: close is specified.
+
+3. content-type: application/json
+    The Content-Type HTTP header tells the client or server what kind of data is being sent. It acts like a label on a package—so the receiver knows how to handle the contents properly.
+
+4. transfer-encoding: chucked
+    The Transfer-Encoding HTTP header is used to indicate how the message body of a request or response is formatted or altered during transmission. It's especially useful when the total size of the payload isn't known in advance, like with streamed or dynamically generated content.
+
+    The most popular form of transfer encoding is chunked
+    
+    chunked - The data is broken into a series of chunks, each preceded by its size in hexadecimal. The end of the body is signaled by a zero-length chunk. This allows sending data dynamically without knowing the full size up front.
+
+    compress, gzip, deflate - These specify that the body is compressed using the respective algorithm (less common now with Content-Encoding).
+
+5. content-length:
+    The Content-Length HTTP header specifies the exact number of bytes of data in the body of a request or response. It's like a packing slip—it lets the receiver know how much data to expect.
+
+    Example:
+        HTTP/1.1 200 OK
+        Content-Length: 34
+        Content-Type: text/plain
+
+        Hello Ananthakumar, welcome to Copilot!
+
+    - Mandatory for HTTP/1.0 and most HTTP/1.1 requests unless Transfer-Encoding: chunked is used.
+    - Not used with chunked transfer encoding—in that case, the body is sent in pieces and doesn't need a predefined length.
+    - If the value is incorrect, clients may misinterpret the message, leading to incomplete reads or connection issues.
+
+6. user-agent
+    The User-Agent header is a string in HTTP requests that identifies the client making the request—typically a browser, mobile app, or tool. It’s like a digital name tag that reveals the requester’s software and sometimes even the device or operating system.
+
+    Example
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36
+
+7. accept
+    The Accept header in HTTP requests tells the server what kind of response formats the client can handle—like JSON, XML, HTML, or plain text. Think of it as the client saying, “Hey, give me the data in one of these formats, please!”
+
+    Example
+        Accept: application/json
+
+8. accept-encoding
+    The Accept-Encoding header tells the server which compression algorithms the client can handle for the response. It’s all about making data transfer more efficient—especially when dealing with large payloads like API responses or static files
+
+    Example:
+        Accept-Encoding: gzip, deflate, br
+        gzip - widely used and supported
+        deflate - similar but less used
+        bt - high efficent for web content
+

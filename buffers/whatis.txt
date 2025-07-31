@@ -1,0 +1,68 @@
+So let's first try to talk about this binary data.
+
+So what exactly is binary data.
+
+Well it's data that its units consist of two possible states and only 2A0 and a one, or on or off.
+
+So binary means two.
+
+And if I say that I have a binary data, it means that I have a data that consists of only two things
+
+a zero and a one.
+
+And well, everything that you have on your computer and everything you see on your computer is a binary
+
+data.
+
+Computers only understand binary data.
+
+All of your files, applications, network requests, your whole operating system.
+
+And we have many different ways to represent these zeros and ones.
+
+For example, CPUs use transistors, Apple and one has 16 billion transistors.
+
+And each one of these transistors could represent an off switch or a zero or an on switch or a one.
+
+Now, transistors are a new technology.
+
+Back in the day when computers first came out, it was literally just a light bulb.
+
+So,
+We're going to see these zeros and ones, and we're going to deal with them.
+
+things are just zeros and ones, we can now answer that question that why buffers are so important.
+
+Now buffers are here.
+
+And note to help us deal with these zeros and ones.
+
+Buffers are the thing that connect NodeJS to all these zeros and ones, so that now we can deal with
+
+files so that now we can deal with network requests.
+
+Now we can send a request to another process.
+
+Maybe now we can communicate with other processes.
+
+And now we have a huge amount of power.
+
+Now that we can work with these zeros and ones without buffers, we have no way to deal with these zeros
+
+and ones.
+
+So Node.js is a system language.
+
+It's meant to be used in server side to create network applications.
+
+So if you don't have a way to deal with zeros and ones, then how in the world are you going to create
+
+a file?
+
+Or how in the world are you going to read a network request?
+
+Or how in the world are you going to connect to a database and exchange some data?
+
+So this is why we have buffers to connect our technology, which is this node, to this whole world
+
+of zeros and ones, to give us access to this low level thing.

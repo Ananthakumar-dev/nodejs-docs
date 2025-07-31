@@ -1,0 +1,71 @@
+We first have to use a switch.
+
+So switch is the basic the most basic thing in networking.
+
+Well first is an Ethernet cable.
+
+The most basic one is a cable which simply just moves bits around one zero.
+
+But after cable, the most basic thing in a network is a switch.
+
+first you buy the cables.
+
+And after you buy the switch, which is in this purest form, you would have to connect that switch to your computer, your laptop, using a special cable that comes with the switch, and then you would have to log into the switch and manually configure it.
+
+The next step is to connect these computers together using that Ethernet cable, to that switch.
+
+So we'd have to connect each one of these computers individually to that switch.
+
+Now if you want to do this, if you want to use the cables, your computer needs to have an ability to accept that Ethernet cable, which is a special type of cable.
+
+And the way that your computer does that is using a networking card.
+
+So nowadays when you buy a laptop, a MacBook, an iMac, the networking card comes built in with it, and that networking card has a unique address associated with it, which is called a mac address.
+
+So each one of these computers, assuming that they do have the networking card either built in or manually.
+
+So these networking cards have a unique Mac address burned on them.
+
+Mac address is 48 bits.
+
+And the bits in this case are represented using hexadecimal.
+
+So as we said before, whenever you see hexadecimal it just means zeros and ones.
+
+Each hexadecimal character is four bits.
+
+So we have 12 of these characters, which in total means 48 bits.
+
+So each networking card, each device has its own Mac address.
+
+Ex: 5C:E4:2A:EB:10:86
+
+Now imagine that you want to send some amount information over to another computer.
+
+So what you would do in this case is that you would now send a packet.
+
+So a packet looks like this. it has source, destination and data. the source and destination is mac addresses and data is the actual data that could be sent.
+
+But basically right now packet is a piece of information.
+
+So if you want to send some amount of information, some amount of data over from your computer to maybe another's computer, you would have to send one of these packets over to the switch.
+
+And in this packet you have to specify some important information.
+
+First of all you have to specify the source.
+
+So you would have to say that this is me sending the information.
+
+And you would also need to specify the destination Mac address like this.
+
+And then also of course your piece of data that you want to send.
+
+Now you would send this packet to the switch.
+
+The switch is now configured.
+
+It knows all the computers that are connected to it and their Mac addresses.
+
+So it knows how to route this packet.
+
+And receiver receives the packet from switch thorugh network card. 

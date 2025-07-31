@@ -1,0 +1,72 @@
+(base 2 numbers)
+
+we said that everything we have in our computer is just
+
+zeros and ones and well what are zeros and ones.
+
+They are just numbers right.
+
+So let's try to understand these numbers.
+
+Let's see what they represent.
+
+Now we also said that these zeros and ones that we have we have different ways to represent them.
+
+Maybe using a transistor or a light bulb or a flash disk has its own system of saving these zeros and
+
+ones.
+
+So let's have an example.
+
+Let's put these boxes.
+
+-- here assume a box view exists 
+
+And let's say that this is our own way of representing these zeros and ones.
+
+So they could be transistors.
+
+They could be light bulbs. we dont care about this okay.
+
+And in each one of these boxes we can have two different states.
+
+We can either have a one or we can have a zero.
+
+And again this is the most basic thing we have.
+
+This is the most basic unit that we have in computers.
+
+Now each one of these boxes can hold one bit.
+
+So one bit one of these boxes could either hold on or off.
+
+Could either hold 1 or 0 okay.
+
+And well one byte is simply equals eight bits.
+
+1byte = 8bits
+
+So one byte is eight bits grouped together.
+
+So if I say that I have 1101, if I say that I have this amount of data, my data is one and zero
+
+And that means that I have four bits of data okay.
+
+now 0 1 0 1 1
+what exactly is?
+
+Well if we pull these out from the box we're going to end up with this which will is a number. and binary numbers also called as base 2 numbers.
+
+left most bit is most significant bit
+right most bit is least significant bit.
+now this is base 2 numbers so that from right to left we can calculate
+1 * 2^0 = 1;
+1 * 2^1 = 2;
+0 * 2^2 = 0;
+1 * 2^3 = 8;
+0 * 2^4 = 0;
+
+so final value is 1 + 2 + 0 + 8 + 0 is 11;
+so the decimel value for the above binary value is 11.
+and note that left most zero's are going to give us 0. so we simple ignore it. our final binary value is 1 0 1 1
+

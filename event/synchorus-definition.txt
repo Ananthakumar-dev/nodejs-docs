@@ -1,0 +1,10 @@
+We have a CPU, Ram, network card, Storage on mother board.
+
+and we have operating system on top of it. 
+
+assume we have only two cores and that cores can operate only two threads.
+
+now we attach a keyboard to the cpu via opeating system.
+
+so now synchronous means when use typing a input from keyboard cpu core assignes one of the precisous thread to constantly listening keyboard only. that core does not doing anything beyond it. that is synchronous.
+

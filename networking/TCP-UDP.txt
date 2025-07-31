@@ -1,0 +1,111 @@
+So TCP makes sure that every single bit that you are intending to send is actually sent over.
+
+So it does some stuff behind the scenes to make sure that the data is received correctly.
+
+For example, if you want to send a password, you have to make sure that every single bit of that password is correct.
+
+Otherwise, if you miss a bit, there is no way for you to check that that password was correct and you will get an incorrect password thing.
+
+So that's one of the ways that you have to use TCP.
+
+You have to make sure that every data, every bit that you are intending to send is actually get sent correctly.
+
+Now, UDP doesn't really care about that.
+
+You just send the message and that's it there.
+
+There's no way for UDP to figure out that the packets are sent correctly.
+
+A packet could get lost, but no one cares.
+
+Now UDP is really used in streaming stuff, for example video streaming applications or voice talking, FaceTiming and stuff like that.
+
+You have seen this probably when you're streaming a video or something like that.
+
+You have seen some lost frames, but no one really cares.
+
+I mean, there are some frames that get lost, but there will not be retransmitted They're just lost.
+
+Because in UDP we care a lot about speed.
+
+So UDP generally is much faster than TCP because it does much less work.
+
+It just gets some data and it transmits that data over.
+
+Some of those data could get lost, but it does not matter too much.
+
+So we have these two main protocols in this fourth layer (Transport layer).
+
+One is TCP and one is UDP.
+
+Now Http is built on top of TCP.
+
+SSH is built on top of TCP, but also some other applications are built on top of UDP.
+
+Now in NodeJS we have this TCP.
+
+HOW TCP WORKS:
+
+So let's say that we have two computers two endpoints.
+
+And we want to send some data.
+
+Now TCP works in this way of three way handshake.
+
+So it first sends a packet over to machine B or to point B now.
+
+And point B will receive that segment and it will acknowledge it.
+
+So it will say all right I received this packet and it will send another request to machine A and say,
+
+hey, there you go.
+
+I am right here.
+
+I am now ready to receive more packets or more segments.
+
+And then machine A will keep sending more and more information to machine B, and there are some headers
+
+in place that TCP uses to make sure that all the data is received correctly.
+
+So let's take a look at some of these TCP headers.
+
+The first header is source port, which is the port that the request is getting sent from.
+
+For example, if we open a TCP server and we start that on port 8000 and we send a TCP request from
+
+that server, the source port will be 8000.
+
+And of course there should be a destination port.
+
+Now apart from these two we have a sequence number which is 32 bits.
+
+And we also have an acknowledgement number which is 32 bits.
+
+So packets that are getting sent over TCP are numbered.
+
+So the first packet has number one, second one has number two and so on and so forth.
+
+So if we receive packet one and then packet two and then packet four.
+
+Now we have a way to figure out that packet three was not received.
+
+So the endpoint A will retransmit that packet three.
+
+So endpoint B the receiver will say that hey I didn't receive packet number three.
+
+And then the sender will retransmit packet number three.
+
+And then also the acknowledgement number which kind of indicates what should be the next packet that the receiver is expecting.
+
+And then we have our data, which is actually optional.
+
+So now let's talk about UDP headers or UDP segments as a whole.
+
+Now a UDP header has a source port just like before.
+
+It also has a destination port.
+
+And it has a segment length which indicates how big the segments itself is.
+
+And it has checksums and data.

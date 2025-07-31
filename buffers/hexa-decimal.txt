@@ -1,0 +1,132 @@
+(base 16 numbers)
+
+Now this numeric system is a base 16 numeric system.
+
+And you should have some ideas about what this 16 means.
+
+Again, if we go back to our formula in hexadecimal numbers, we have to take each character and multiply
+
+it by 16 to the power of its index.
+
+And also we only use 16 characters or 16 symbols to represent our numbers.
+
+So the units of each file is just zeros and ones.
+
+And we already know that as software engineers it's very important to understand these binary numbers.
+
+But why do we have to care about hexadecimal numbers.
+
+Why do we have to use another numeric system besides binary or decimal?
+
+Now I just want to say this right now, that the main reason that we're learning about this numeric system, this base 16 numeric system, is because conversion between hexadecimal and binary is insanely simple.
+
+And there is something very neat about it that each four bits that you pick, there is one hexadecimal character and only one hexadecimal character that could represent that exact same number.
+
+So any four bits that you pick, there is exactly one hexadecimal character that you can use instead of that four bits.
+
+example: 0x456
+here 0x is just indicator. not part of numbers.
+6 * 16^0 = 6;
+5 * 16^1 = 80;
+4 * 16^2 = 1024;
+
+so finally 6 + 80 + 1024 = 1110;
+so the decimal value for 0x456 is 1110;
+
+So hexadecimal is base 16.
+
+So we use only 16 characters or 16 symbols to represent our numbers.
+
+Let's take a look at these symbols.
+
+0 1 2 3 4 5 6 7 8 9 A B C D E F
+
+example to calculate fa36
+12 * 16^0 = 12;  because c value is 12 in hexadecimal.
+3 * 16^1 = 48;
+10 * 16^2 = 2560;
+15 * 16^3 = 61440;
+so 12 + 48 + 2560 + 61440 = 64060;
+
+compare table
+hexadecimal     decimal     binary
+base 16         base 10     base 2
+
+0xFFFFFF        16777215    1111 1111 1111 1111 1111 1111
+
+6characters     8characters 24characters
+
+
+Now let's see how exactly using hexadecimal will help us to deal with binary.
+
+Now as we said before, it's really easy to convert back and forth between these two.
+
+And the very neat thing about hexadecimal is that each hexadecimal character is exactly four bits,
+
+so each four bits.
+
+If I give you a binary data, maybe the data of a file, or if we just take a look at the contents of your memory of your Ram, you're going to see just something like this, zeros and ones.
+
+But you can represent each one of the four bits using only one hexadecimal character, which is really nice and really neat and it's going to help us be able to figure out what's going on in that file or in our memory much, much better.
+
+So here, if you take this binary number, this data.
+
+So here we have 32 numbers.
+
+0101 0101 0111 1101 0101 1111 0000 0001
+Now in this case it's only 32 bits.
+
+So if you have a file that has only four characters.
+
+But you can represent each one of the four bits using only one hexadecimal character.
+
+whole gigantic number, which is 32 numbers, 32 zeros and ones, you would see something pretty neat just like this.
+0101 0101 0111 1101 0101 1111 0000 0001
+5      5    7   D     5    F    0   1
+so the hexadecimal value is 557D 5F01.
+
+You don't need to do any kind of sort of math.
+
+You don't really need to do any crazy calculations.
+
+It's just something pretty straightforward.
+
+In fact, there's this table that says the binary number for each hexadecimal character.
+
+And just by having this table, you can easily convert between binary and hexadecimal.
+
+Hexadecimal Digits Binary Numbers:
+0 → 0000
+1 → 0001
+2 → 0010
+3 → 0011
+4 → 0100
+5 → 0101
+6 → 0110
+7 → 0111
+8 → 1000
+9 → 1001
+A → 1010
+B → 1011
+C → 1100
+D → 1101
+E → 1110
+F → 1111
+
+Hexadecimal Digits Decimal Numbers:
+0 → 0
+1 → 1
+2 → 2
+3 → 3
+4 → 4
+5 → 5
+6 → 6
+7 → 7
+8 → 8
+9 → 9
+A → 10
+B → 11
+C → 12
+D → 13
+E → 14
+F → 15

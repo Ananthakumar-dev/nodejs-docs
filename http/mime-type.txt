@@ -1,0 +1,36 @@
+Now when you have a piece of data and your operating system, you indicate how to interpret that piece of data using file extensions.
+
+So suppose you have a sequence of bits.
+
+It could be a file.
+
+And now you want to open that in your operating system.
+
+Your operating system uses these file extensions to figure out how to open that file.
+
+For example dot PDF or dot CSS or dot js or dot jpg.
+
+So your operating system will take a look at the file extension.
+
+And depending upon what that file extension is, it will try to open it using different applications.
+
+So it now knows whether to open that file using a character encoding or using an image encoding, or using what kind of applications, so to speak.
+
+So this is how we tell the operating system how to understand a piece of zeros and ones.
+
+Format of mime-type is:
+    type/subtype:key=value
+
+    here key=value is the parameters which is optional.
+    example: text/css
+            text/html;charset=utf-8
+
+We've got two different classes of media types.
+
+We've got the discrete class and we've also got the multi-part class.
+
+It's very easy to understand if the class is discrete.
+
+It means that it's only one file.
+
+It's a single file, and if it's multi-part, it means that it's multiple files.
