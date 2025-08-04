@@ -1,0 +1,10 @@
+1. echo "Some string"
+
+2. echo "Some string" | tr " " "\n"
+
+Now in 2nd command
+    So I just ran one command that is echo command. But this command is going to grab the output and then it's going to give it to the TR application.
+    And this TR is just going to replace all empty strings with a new line character.
+
+
+Here echo and tr are unix executable files. Both are like applications.

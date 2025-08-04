@@ -1,0 +1,49 @@
+Unix was an operating system that was developed by AT&T company by two important people called Ken Thompson and Dennis Ritchie, and it was developed in the late 1960s and early 1970s.
+
+Well, they developed Unix, which is now impacting pretty much all the operating systems out there.
+
+It's run on millions and billions of devices, and the whole internet runs on top of it.
+
+They also invented C, and C was also developed by the same guy who built Unix, Dennis Ritchie.
+
+And C, it's also now one of the most important programming languages right now in the world.
+
+And a lot of the applications and technologies as you know it, such as Node.js, database servers, and lots of others are written in C.
+
+And also transistors were also invented by the same research center.
+
+Now, Unix first was written in assembly, but it was really problematic because now you have this assembly code.
+
+Now, we talked very briefly about assembly in the first section, and we saw that we have to write code that is specific to a certain hardware.
+
+So if we write code for a specific CPU, we can't run the same code on another CPU.
+
+And this is a huge problem because now we have to rewrite our whole program every time we want to run it on a different CPU.
+
+And Unix also had the same problem.
+
+So what Dennis Ritchie did was that it took C, and then it kept improving C so that they could rewrite Unix entirely in C.
+
+And this was the first operating system that was written in C.
+
+And that made a huge difference because now it was something that was portable.
+
+You don't have to rewrite the whole thing from scratch again if you now want to run it on a different machine.
+
+So C became a really core part of Unix because, well, it was written in C and then Unix became really popular.
+
+The below operating systems are build on based on unix concepts
+    BSD
+    Linux
+    MacOS/Darwin
+    Android
+    IOS
+
+Why we need to learn UNIX?
+1. Servers & Deployments
+    For example, the servers that you're going to deploy your node applications into are, well, Unix machines.
+2. Command line proficiency
+3. New possibilities
+4. Security
+5. Portabilty & Compatability with machines
+6. Performance optimization

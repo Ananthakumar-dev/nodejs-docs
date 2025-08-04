@@ -1,0 +1,61 @@
+We use spawn to run processes to run applications.
+
+So right now you have a whole bunch of applications installed on your machine.
+
+And you can run all of them using this spawn.
+
+________________________________________________________________________________
+
+const {spawn} = require('child_process');
+
+const subprocess = spawn('ls')
+subprocess.stdout.on('data', (data) => {
+    console.log(data.toString('utf-8'));
+})
+
+here if we execute this it working. it prints output of ls command that we did in command line.
+
+but it does not works for
+const subprocess = spawn('ll')
+const subprocess = spawn('disown')
+this kind of operations.
+
+And initiate child processes with arguments is 
+const subprocess = spawn('ls', ['-l'])
+This also not works.
+
+So What can we specify here and what can't we specify here. here means argument of spawn method. it throws the error entity not found ENOENT
+
+________________________________________________________________________________
+
+But,
+
+const {exec} = require('child_process')
+
+exec('ls -l', (error, stdout, stderr) => {
+    if(error) {
+        console.error(error)
+        return;
+    }
+
+    console.log(stdout)
+    console.log(stderr)
+})
+
+exec('disown', ...)
+
+but this exec is working. but some error is occured. it throws like command not found.
+________________________________________________________________________________
+
+And if we look at
+const subprocess = spawn("echo", ["Some string", "|", "tr", " ", "\n"]);
+
+if we execute this it prints "Some string | tr" as a string.
+
+so what is happening right now is that echo is being run, but the rest of them are just being passed as its argument.
+
+But the above same echo thing works with exec function.
+
+________________________________________________________________________________
+
+So here spawn and exec are working based on unix concepts.
