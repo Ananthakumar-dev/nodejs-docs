@@ -1,0 +1,135 @@
+Kernel:
+    The main thing that is running on top of the hardware is called our kernel.
+
+    So we're going to call this thing now our Unix kernel okay.
+
+    So this is the core of our operating system.
+
+    This is where the magic happens.
+
+    This is where the operating system talks to the hardware.
+
+    All the system calls are here in the kernel.
+
+    So again this is the core of our operating system.
+
+    Our node application is communicating with this kernel right here.
+
+    Again windows has its own kernel.
+
+    Linux has its own kernel Mac has its own kernel.
+
+    But again let's call it right now our Unix kernel okay.
+
+    So the core of our operating system.
+
+    So all of our processes in our machine will be running on top of this kernel.
+
+Shell:
+    Now one of these processes, one of these applications that is also really important to us is a shell application.
+
+    So you have this shell application installed on your storage and your kernel could go ahead and spawn that process for you.
+
+    Now what exactly is a shell.
+
+    Well, as you can see here, it's just a process.
+
+    Just like our node process.
+
+    And it's running on top of our kernel.
+
+    So shell is an application.
+
+    It's an application usually written in C.
+
+    So it's a C application that communicates with Unix.
+
+    So you open up your terminal and then you put in some commands.
+
+    And then this is the shell application that will take those commands.
+
+    And then it will talk to Unix.
+
+    And Unix itself will do some operations.
+
+    And then it'll tell shell what happens.
+
+    And shell will show you the output in your terminal okay.
+
+    So shell communicates with the kernel through some system calls.
+
+    Now we have mentioned these system calls from time to time.
+
+    We said that through the system calls you can communicate with your operating system with your kernel we should say at this point.
+
+    So you can for example, we have a system called that you can call to go ahead and create a file in
+
+    your storage or a system call that you can call it to allocate some amount of memory to you, or some system calls to do some network operations to send maybe an IP packet or a TCP packet.
+
+    So all of these things are done using system calls.
+
+    And if you're curious to know how in the world can we call these system calls.
+
+    We can call them in C.
+
+    So in the C programming language if you are writing some C code, there are some headers that you can include.
+
+    And in those headers you'll get access to the system calls.
+
+    So you can just run those system calls directly in your code and shell.
+
+    Because shell itself is a C application, it has access to all of these system calls.
+
+    So the shell behind the scenes, it will make use of all of these different system calls to do the actual operations for us.
+
+Man command:
+    3 sections are
+        1. General commands -> man open
+        2. System calls -> man 2 open, man 2 syscalls (it going to list all of system calls exists in operating system)
+        3. C functions
+    
+    Yes we can access system calls and C functions from shell. Because shell is built using C. C is the core part of unix.
+
+    And Unix based machines we usually have around 1000 system calls.
+
+    Well it's usually less than 1000.
+
+    It depends on what is your exact operating system.
+
+    But the number is roughly around a few hundreds.
+        
+How to open shell application?
+    Well, the usual way that we run our shell is through our terminal.
+
+    So we first open up our terminal.
+
+    And then the terminal application will tell Unix that open up a shell for me.
+
+    So the terminal will tell Unix that hey you Unix, you go ahead and you open up a new process, a new shell process, and give me access to it.
+
+    I don't care what shell whatever is your default shell, but just go ahead and open up that shell.
+
+    So the terminal will tell Unix kernel just that.
+
+    And then the kernel is going to go over to the storage.
+
+    And it's going to spawn a new process.
+
+    And this new process is our shell okay.
+
+    Every time you create a new tab, you are creating a new shell.
+
+    So this is how you would usually get into your shell.
+
+Shell history:
+    1. Thompson shell
+    2. Bash - Linux comes with builtin Bash
+    3. zsh - Macos comes with builtin zsh. zsh is the super version of Bash.
+
+    echo $SHELL -> it going to print the path of current shell which is bash or zsh. /bin/zsh or /bin/bashrc. here zsh and bashrc is the unix executable file. 
+
+    We can install different shells and change the version together.
+
+    cat /etc/shells is used to print different versions of shell.
+
+    

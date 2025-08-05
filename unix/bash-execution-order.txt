@@ -1,0 +1,99 @@
+Order:
+    Alias -> Functions -> Builtin functions -> Path
+
+
+1. Alias
+    So every time you run something and then you hit enter, the first thing that bash is going to do is that it's going to look for aliases.
+
+    So it's going to look for all the aliases that it has.
+
+    And if it finds an alias, it's just going to run it okay.
+
+    Now aliases in bash are just replacements.
+
+    So you can say I can have my alias of this and then replace that with this actual command.
+
+    And it could really help you be more efficient when using Unix.  
+     
+    We can define alias like below
+        alias runplay="node playground.js"
+
+        so inside quotes we need to define some shell script.
+
+        now we can run playground.js using runplay command instead node playground.ks
+
+    So this is how aliases work okay.
+
+    Just a simple replacements.
+
+    And they have the highest precedence over anything else.
+
+    So if I say alias and then LHS equals node.
+
+    So I'm going to do something silly and say every time I run this just replace that with node.
+
+    And if I hit enter now if I do less, instead of actually seeing the list of all the files that I have,
+
+    bash is going to replace it with node and then it will execute that command.
+
+    In this case it will execute node.
+
+    So if you have an alias, it will overwrite anything else that you give to bash.
+
+    And the way that you unset an alias is using an alias.
+        unset alias runplay
+
+    So if you just say type and then you give it your alias, it's just going to tell you that run play is an alias for Node Playground.
+        type runplay
+
+2. Functions
+    So if you run a command and that command is not an alias bash is going to look for functions. And it's going to run a function that has that exact name.
+
+    Assume we defined a function named cur, and now if we check type
+        type cur -> cur is a shell function
+
+    if we want to remove the function then,
+        unset -f cur(function name)
+
+3. Builtin functions
+    example: echo is a Builtin function
+        type echo
+
+    If our command not found in aliases and functions then it look for Builtin functions
+
+4. Path
+    example: ls is path
+        type ls -> it prints like ls is /bin/ls.
+
+    So here ls is a unix executable file that exists inside /bin directory.
+
+    If our command not found in aliases, functions and Builtin functions then it could look for path. It could look for any executable files exists in path.
+
+    But what does that really mean. Which path's are shell looking for?
+
+    So we have this global variable in our shell called path okay.
+
+    And you can just echo it again.
+
+    echo $PATH
+
+    So this is considered to be my path.
+
+    It just consists of different paths divided by a colon.
+
+    So when we say that bash is going to look for path, is that it's going to go through these folders and it's going to look into each one of them and see if it finds a Unix executable file in these paths.
+
+    We can run /bin/ls also instead simple ls. but it painful.
+
+    We need to add that path /bin to $PATH. After that shell automatically looking for that file in the specified folder.
+
+    The shell is going to go through all of these paths until it finds a Unix executable file that matches your name, and then it's going to execute it.
+
+    Now of course, you can add in your own stuff to the path, or remove stuff from the path if you want. And the way that you can update this is just by saying 
+        PATH="$PATH:/Users/anand/Downloads"
+
+    
+We can get this path in nodejs
+    process.env.PATH
+
+    

@@ -18,6 +18,7 @@ here if we execute this it working. it prints output of ls command that we did i
 but it does not works for
 const subprocess = spawn('ll')
 const subprocess = spawn('disown')
+const subprocess = spawn('bash', ['./scripts.sh'])
 this kind of operations.
 
 And initiate child processes with arguments is 
@@ -59,3 +60,23 @@ But the above same echo thing works with exec function.
 ________________________________________________________________________________
 
 So here spawn and exec are working based on unix concepts.
+Now the main difference between spawn and exec is that exec is going to take this command, and it's going to run it in a shell.
+
+But here, this spawn, it's not going it doesn't have to do anything with a shell.
+
+It's just going to start a new process.
+
+The thing we are writing in exec function is should be a shell script.
+But spawn function used to execute the unix executable file. 
+
+So in your first arguments and spawn you have to specify a Unix executable file.
+
+NodeJS is going to look in the path to find that thing.
+
+So just like the bash would do it and the spawn doesn't care about aliases or functions or built in functions, the only thing that it's going to look for is all the stuff that we have in the path.
+
+So the spawn process doesn't care about aliases or functions or built in functions.
+
+It just simply doesn't care, because its whole purpose of spawn is to start new processes, to start new Unix executable files.
+
+So the only thing that the spawn function is going to look for is right here in the path.
