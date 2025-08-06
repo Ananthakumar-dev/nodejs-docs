@@ -1,0 +1,68 @@
+So when you create a new bash process or a new set sh process, what really happens?
+
+What happens before the bash starts to run your first commands?
+
+And after we understand this, we'll be able to realize why exactly we were not able to run the shell commands and the exact function.
+
+And also, what can we do to keep our functions and changes to variables maybe permanent and all of our following shells?
+
+When you start a shell we've got different types of shells.
+
+So in bash or in zsh a shell could either be log in or non log in.
+
+There's still bash or zsh. They still work in the exact same way.
+
+So a log in shell will run some configuration files that a non log in shell typically don't.
+
+So that's the only difference.
+
+Think of this log in shell as running some more commands.
+
+And this non log in as not running as much commands.
+
+Now another two things that a shell could be.
+
+A shell could either be interactive or non interactive okay.
+
+So if a shell is interactive well as the name suggests you can interact with it.
+
+You have a command prompt.
+
+You type in your command.
+
+You hit enter and then you enter your next command and so on and so forth.
+
+But if your shell is not interactive, you are not interacting with the shell.
+
+You just say bash and then you specify your file and then it's going to run it.
+
+And while it's doing its job, while it's running the instructions, you cannot interact with it.
+
+So in a non interactive shell you don't have a command prompt.
+
+It's not that you put a command and then you put the next one.
+
+You just run your whole script file and that's it.
+
+Types:
+    Login or Non-Login
+    Interactive or Non-interactive
+
+So every time you create a shell it could be either one of these okay.
+
+So we could have any combination of them.
+
+So a shell could be log in and non-reactive or log in and interactive or non log in and interactive and non log in and non interactive.
+
+1. Login shell
+    It going run the below files
+        I. /etc/profile
+        II. ~/.bash_profile (if not found) -> ~/.bash_login (if not found) -> ~/.profile
+
+        After bash runs the above it going to run
+        III. ~/.bashrc
+
+        RC stands for run commands okay.
+
+2. Non-login & interactive shell
+    It going to run ~/.bashrc

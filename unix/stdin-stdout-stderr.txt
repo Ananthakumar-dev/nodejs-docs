@@ -1,0 +1,7 @@
+Every time you start a Unix executable file, we said that some stuff will be passed along to that process from its parents, such as environment variables and arguments, and also some other things that Unix does for a process when it's initializing it or data streams.
+
+So your process will have three different streams that it can use to communicate with other processes.
+
+    stdin, stdout, stderr
+
+And through these streams you can communicate with each process that is opened up on your machine. 

@@ -1,0 +1,12 @@
+syntax: source filepath(file should be a shell file)
+
+example: source ./scripts.sh
+
+So we can just say source and then specify our file just like that.
+
+It's going to run it.
+
+And then it's going to take all the functions and variables and aliases and put them in the current shell.
+
+It's like exporting our variables and functions to our current shell from file.
+

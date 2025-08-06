@@ -80,3 +80,69 @@ So the spawn process doesn't care about aliases or functions or built in functio
 It just simply doesn't care, because its whole purpose of spawn is to start new processes, to start new Unix executable files.
 
 So the only thing that the spawn function is going to look for is right here in the path.
+
+________________________________________________________________________________
+But what exactly is a child process in Unix?
+
+Now in Unix on top of your kernel.
+
+We saw this previously that you have opened up many different processes.
+
+So you've got these processes opened up in your operating system.
+
+For example bash is a process node is a process, Google Chrome and hundreds of others.
+
+Now each process in Unix has a process ID or a PID.
+
+So Unix the kernel, when it's about to start a new process, it will assign a unique ID to that process
+
+so that we can identify that process.
+
+And this ID this PID is unique to only this process.
+
+So now we can diagnose it if we want to kill it later on.
+
+We know how to kill it.
+
+We say kill in our terminal.
+
+We specify the PID and then we can kill the process.
+
+So each process has a PID associated with it.
+
+Now another thing that each process has is also a parent process ID or just PID.
+
+Now the parent process ID is the ID of the process that spawns this process.
+
+In Unix, all processes have a parent process and the parents of all the processes.
+
+So if you just take a look at each process, you see that that process has a parent.
+
+And if we go into that process you see that that process has another parent.
+
+And if we just keep going at the end of the line, you're going to find a process that has ID zero. And that's the kernel itself.
+
+So each process has a parent process except the kernel.
+
+It's part of the kernel that's responsible for opening up some of the processes.
+
+And that's the main that's the main parent of all the other processes.
+
+So technically all the processes that you have in your operating system, they are all child processes.
+
+And each process has this ability to start other processes.
+
+So all of these processes are sitting inside of your Ram.
+
+You might have eight gigabytes of Ram, 1632 whatever it is, all these processes are occupying that storage.
+
+for ex: shell initiate node process. so here parent process is shell and child_process is node. 
+
+So this is what we mean by a child process.
+
+It's just a process that has been opened up by another process and all the processes that you have.
+
+checking the process id in shell: echo $$ & echo $PPID
+checking the process id in node: process.pid & process.ppid to check the parent process id.
+
+we can pass the arguments when initiate child_process and get it using process.argv in node.

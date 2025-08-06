@@ -1,0 +1,30 @@
+Previously, we mentioned that when you start a new child process, one of the things that will be passed along to that child process well is a list of the arguments.
+
+But something else that also gets passed along to your child processes is a complete list of the environment variables.
+
+So you've got the environment variables and you've also got the arguments.
+
+Now they are different.
+
+And we're going to take a look at what exactly these environment variables are.
+
+But for now just know that they are different variables that will be passed along from a parent child to its children.
+
+So your bash, if bash is your current process, every time you start a new process, be it your node application, the LHS application, or anything else, all of the environment variables that are in that current shell will be passed along to those children as well.
+
+And this is also the case in node.
+
+So when you start a new child process from your node application.
+
+So if you start multiple different child processes, your environment variables, the environment variables that you have in your node application will be passed along to all of those children.
+
+And the way that you can make a variable, an environment variable is using export in shell. example:
+    foo="bar"
+    echo $foo
+    export foo // this is the thing we add the variable to environment variables.
+
+we can get these variables in node using process.env
+
+And environment variables are just regular variables.
+
+But the difference is that they are being exported, meaning that they will be passed to all of the child processes.
