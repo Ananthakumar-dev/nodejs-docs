@@ -1,0 +1,319 @@
+Running process on a machine and CPU scheduling thing:
+
+Now once we understand this operating system scheduling thing, we're going to also understand how threads are being handled and what exactly they are.
+
+And the reason is a threat and a process are really similar.
+
+In fact, Linux regards a threat and a process as the same thing.
+
+So if we understand this CPU scheduling and how your operating system is managing all these processes,
+
+we will also automatically understand threats.
+
+Now all your processes on your machine, you probably have hundreds of processes opened up.
+
+They are either in this ready state.
+
+So each process has a state associated with it.
+
+It's either in the ready mode or it's in the running mode or it's in the sleep mode.
+
+So three important states for us to understand.
+
+If a process is in the ready queue, it means that it's ready to be executed.
+
+And if it's in the running mode, it means that it's getting CPU time and the CPU is executing its code.
+
+We've also got this sleep state.
+
+This state is usually called a different thing on different operating systems and also in different textbooks.
+
+The point is, if a process is in the sleep state, it's not getting any CPU time whatsoever and it's waiting for something to happen.
+
+We're going to talk more about this in just a minute.
+
+But three important states for us to understand at this point.
+
+Now, let's also say that our CPU has only one core.
+
+So this gear icon right here, let's regard it as one core.
+
+Now let's bring one process into play.
+
+So let's say that this is one process opened up on our machine a very ideal case. Just one process.
+
+Now you just open up a process.
+
+It's going to be here in the ready state.
+
+And then there is this thing in your operating system called a dispatcher.
+
+The job of a dispatcher is to move the processes from the ready state to the running state.
+
+So it's going to do them in this queue.
+
+And it's going to make sure that each process gets a good amount of CPU time.
+
+So the dispatcher is going to come into play.
+
+It's going to see that this process is in the ready state and the CPU is also empty.
+
+So it's going to move this process to the running state.
+
+And now the CPU is running that process if the process gets finished, for example, in your process, you might just do a bit of math, add a few numbers together, log it, and that's it.
+
+So a very minimal operation.
+
+So it's going to exit right away.
+
+And then it's going to be moved to this state.
+
+It's usually called terminated state.
+
+Now if there's a lot more going on for example the operation is going to take seconds or even minutes to complete.
+
+It's going to give it a bit of CPU time, and then once it times out, it's going to move it back to the ready state to the ready queue.
+
+This is a queue.
+
+And we could have many different processes right here in this queue.
+
+Now this timeout time is usually called quantum or time slice.
+
+And it's just a few milliseconds.
+
+So a process might be here in the running state usually about 100 milliseconds.
+
+Again it's different depending upon your machine, but it's some amount of short time, so we as humans won't really notice it.
+
+So it times out, it gets moved back here to the ready state.
+
+And then because it's just one process and there's nothing else going on, the dispatcher is going to take this process and then move it back to the running state.
+
+Now let's take a look at this sleep state and see what happens right here.
+
+Now if the process is being run right here in the CPU.
+
+If the process makes a system call that's blocking so the operating system knows it.
+
+For example, if the process says that, go ahead and create this file or if it's waiting for a network request to come in.
+
+So if the process makes a call that's blocking or even a timer like the setTimeout or Setinterval, the operating system is going to move it now to this sleep state.
+
+So if it's going to wait for something, the operating system is going to take it from the running state.
+
+It's going to say that, okay, you're now done.
+
+You no longer have any more instructions to be run by the CPU.
+
+You're now waiting for this thing.
+
+So I'm going to move you to the sleep state.
+
+And once that particular event occurs, I'm going to move you back to the ready state.
+
+So this flow constantly happens.
+
+So imagine we create our node application and we start to immediately listen on a particular TCP port.
+
+When the CPU executes all the first instructions, like for example, setting up the middleware functions or just doing those basic things that we usually do before we run our server, and then we get to that point Server.listen once that happens, it's a blocking call.
+
+The process, the node process is now telling the OS that give me that request.
+
+So now the process is waiting for an event.
+
+There is nothing else going on.
+
+There's no more code to be executed.
+
+So it's going to be moved here to the sleep state.
+
+And once that particular event occurs, for example, a request comes in to that port, the operating system is going to notify it.
+
+It's going to move the process to the ready state, give it the event, and then it's going to be moved to the running state.
+
+Execute that code related to that request maybe, and then it's going to be moved back to the sleep state.
+
+Now we can imagine that we could have many more of these processes on our machine.
+
+So the CPU scheduler is going to schedule all of these processes.
+
+Usually you've got hundreds of processes opened up on your machine and the sleep state.
+
+So they're waiting for something to happen.
+
+Maybe your mouse to click on a button, or they're waiting for you to start typing on the keyboard, or for a file to be created or for a request to come in. Anything.
+
+So usually you've got a lot of these processes in these sleep states.
+
+So a few important points to take from this diagram.
+
+First, if a process is in the running state, it's constantly being executed.
+
+It's getting CPU time.
+
+If you take a look at its CPU usage, it's going to be 100%.
+
+It's taking all the power of that core to itself.
+
+Another point is that if a process is in the sleep state, nothing is going on.
+
+The CPU is completely free.
+
+It's not going to touch it until that event happens.
+
+And also, if we've got multiple processes opened up on our machine, this scheduler thing is going to constantly execute each one of them.
+
+So now we get this illusion that they are all running at the same time, because each process is going to get only a few milliseconds of CPU time and then be switched back to the ready state, and all of them would get a bit of CPU time.
+
+And to us it seems like that they are being executed at the same time, but they are not actually being executed at the same time.
+
+______________________________________________________________________________
+
+CPU usage:
+
+I'm right now on a 12 core machine, so my CPU usage could go as high as 1,200%.
+
+Each CPU core is being represented using 100%.
+
+Okay, so if I see a process, its CPU usage is 100%.
+
+It means that one of my course is being occupied all the time to take care of that process.
+
+Now you can also see that the CPU usage is not a perfect 100%.
+
+And that's because of this context switching.
+
+It's moving to the ready state and then back to the running state.
+
+And it happens so fast.
+
+So it's not a perfect 100% because a little bit of time is actually being cut out from this time to
+
+move this process back and forth between these two.
+
+______________________________________________________________________________
+
+Running two processes at the same time:
+
+So now let's take a look at another case.
+
+Let's say that we're now on a two core machine.
+
+Now things would get more interesting at this point.
+
+It's still the same concept.
+
+But the difference is that right now we can do two operations at the same time.
+
+So we're now going to move two processes from the ready state to the running state, execute them.
+
+And then one process at one point might make a blocking call.
+
+It's going to be moved to the sleep state.
+
+And then the next process is going to move to the running state.
+
+The point is we are now doing two operations at the same time.
+
+We are now having two of those program counters and fetching two instructions at the same time, and executing two instructions at the same time.
+
+Now compare this with the other case that we had with only one CPU core.
+
+Let's say that we've got two processes, two operations, and each one would take 10s to complete.
+
+If we are on a two core machine, what's going to happen is that two of these processes are going to be moved right here.
+
+So let's say that we've got only two processes.
+
+So they're going to be executed for a little bit of time.
+
+They're going to be moved back to the ready state after the timeout.
+
+So after the quantum time and then move back to the running state.
+
+So this switching thing is going to constantly happen and happen.
+
+And after about 10s a little bit more than 10s because we've also got this switching context.
+
+But the difference is just a few milliseconds, maybe even a few microseconds.
+
+But the point is after about 10s, they will both get done.
+
+10s is gone and these two operations have been done if we are on a two core machine.
+
+Now, if we have the exact same two processes.
+
+So these two are now on a single core machine and each process would take 10s to complete.
+
+And the difference is that now in this case this one is going to move right here.
+
+It's going to be executed for a little while and then moved back right here.
+
+This one is going to be executed for a while.
+
+So this switching thing is constantly happening.
+
+If we are on a single core machine and it's not going to take now 10s to complete both of them, it's going to take now 20s to complete both operations.
+
+So by adding another core, we're increasing our speed by two times.
+
+We can now handle two things at the same time.
+
+So you can imagine that the wait time would now usually be half.
+
+So on a single core machine, even though we are executing each one a little bit and we feel like that they are being executed at the same time on our machine, the time is actually not going to be any different.
+
+So now we're going to wait for 20s for both of them to be finished.
+
+______________________________________________________________________________
+
+Concurrency and parallelism:
+
+Now this brings us to two different terminologies that we need to understand.
+
+And that's concurrency versus parallelism.
+
+Concurrency means that we've got different tasks and we are executing them all at the same time.
+
+They're not being executed simultaneously.
+
+We're executing one and then moving on to the next one and then to us humans.
+
+We have this illusion that we are executing them all at the same time.
+
+But if we really look close at each particular millisecond, we can see that we are only doing one of them.
+
+But this context switching is so fast that when we look at it on our computer, it seems like that they are all being executed at the same time.
+
+Now, parallelism is exactly happening at the same time.
+
+So if we get really close and take a look at each particular millisecond and see what's happening there,
+
+we can see that two instructions are being executed simultaneously.
+
+So in this case we've got parallelism.
+
+We've got three processes that are being run concurrently.
+
+But only two of them at any given time are being run in parallel.
+
+So there's a distinction between running in parallel and running in concurrent mode.
+
+And in computing these are two different terms.
+
+______________________________________________________________________________
+
+THREAD:
+
+So let's now talk about threats Now a threat is a unit of execution. Very simple.
+
+So each thread is going to have its own program counter and also the operating system.
+
+The CPU scheduler is going to regard each thread as a unit of its own.
+
+So each thread could be either in the sleep state or the ready state or the running state.
+
+And each process that you start on your machine is going to have at minimum one thread.
+
+The main thing that's going to execute, we cannot have a process that has zero threads.

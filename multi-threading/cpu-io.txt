@@ -1,0 +1,91 @@
+What is the difference between CPU Intensive and I/O Intensive task.
+
+And the reason that we need to understand this is because using the worker module, we're going to see some great benefits for CPU intensive operations.
+
+But for IO intensive not so much.
+
+That node itself is more efficient in handling IO compared to worker threads.
+
+CPU Intensive:
+    In that case, we call that operation a CPU intensive operation, like generating prime numbers, doing some image processing, or any media processing in general, like audio or video processing.
+
+    Some of the other examples of CPU intensive one is encryption and also decryption. That's another CPU intensive operation.
+
+    And doing any cryptography operations in general, such as hashing.
+
+    Compression is another one.
+
+    Sorting an array, parsing some large JSON files, or in general any mathematical operations.
+
+    And math doesn't mean like math.
+
+    Math even just going through a string doing some basic additions.
+
+    So all of these are usually considered math, and they are all categorized as CPU intensive because if you do them a lot while the operation is being done, the CPU usage is 100%.
+
+    It's getting as much as CPU as it could possibly get.
+
+    So these types of operations, will column CPU intensive.
+
+    So here we've got the ready running and the sleep state.
+
+    If we've got a process, an operation that for that operation to be completed it needs to spend the majority of its time here in the running state.
+
+    In that case, we call that operation a CPU intensive operation
+
+I/O Intensive:
+    So let's say that you are going to send a request, and that request is going to take one minute to complete.
+
+    So during that one minute you're not here in the CPU and you're not getting 100% CPU usage, okay.
+
+    You are just waiting for the network card to send the request and get the response.
+
+    And during that period you are here in the sleep state.
+
+    Okay, so you're not getting any CPU time, you are just waiting for something else to happen. And that's what IO means.
+
+    It means input and output.
+
+    It's a general term and a node.
+
+    Some of the examples are well IPC is one of them.
+
+    So inter-process communication.
+
+    So every time you use the child process to communicate with another thing even though that process itself might do something CPU intensive, here in node you're just doing some I o.
+
+    So you're sending a message to that process or reading from that process.
+
+    Another example is the Net module.
+
+    Therefore also the HTTP module or any other networking things.
+
+    And UDP these are all considered I o.
+
+    So if you're going to send millions of requests you are doing something I o intensive and not CPU intensive.
+
+    Now of course you could fall between these two as well.
+
+    For example, if you were getting a request or sending a request, and then for each one, you're doing something CPU intensive.
+
+    So you could constantly be in this state of IO and also CPU intensive.
+
+    So that works too.
+
+    But the acts of networking itself.
+
+    So just getting the requests or sending the responses that is considered I o and also file system.
+
+    So creating files, reading files these are all categorized as I o and well also anything else that's built on top of these.
+
+    For example a web server or doing some database queries.
+
+    Communicating with a database is usually through IPC or through networking, most probably through TCP.
+
+    So that's I o.
+
+    So if you're doing a huge amount of database queries writing to database reading from database, that is an IO intensive operation.
+
+    And for IO intensive, your node app will spend the majority of its time here in the sleep state.
+
+    So that's what CPU intensive and IO intensive are.
