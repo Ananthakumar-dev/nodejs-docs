@@ -1,0 +1,9 @@
+1. reverse a number
+    int digit = num % 10;         // take last digit
+    result = result * 10 + digit; // append it to result
+
+2. find mid
+    int mid = low + (high - low) / 2;
+
+3. How Many Subarrays in an Array?
+    number of subarrays = n(n + 1) / 2;
